@@ -21,16 +21,29 @@
             </div>
         </div>
 
-        <div class="col-lg-5">
+        <!-- <div class="col-lg-5">
             <h3>Raw Data</h3>
             <pre>{{result | json}}</pre>
+        </div> -->
+
+        <div class="col-lg-5">
+            <h3>Listings</h3>
+            <ul id="listings" class="list-group">
+                <li class="listing list-group-item" ng-repeat="listing in listings">
+                    <a ng-click="ctrl.getComments(listing)">{{listing.data.title}}</a>
+                </li>
+            </ul>
         </div>
 
         <div class="col-lg-6">
-            <h3>Listings</h3>
-            <ul id="listings" class="list-group">
-                <li class="list-group-item" ng-repeat="listing in listings">{{listing.data.title}}</li>
-            </ul>
+            <h3>Comments</h3>
+            <div class="comment panel panel-default" ng-repeat="comment in comments">
+                <div class="panel-heading">
+                    <span class="author">{{comment.data.author}}</span>
+                    <small class="time">{{comment.data.created * 1000 | date:'short'}}</small>
+                </div>
+                <div class="body panel-body">{{comment.data.body}}</div>
+            </div>
         </div>
     </main>
 </body>

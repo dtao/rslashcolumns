@@ -11,4 +11,11 @@ rsc.controller('controller', function($scope, $http) {
         $scope.listings = result.data.children;
       });
   };
+
+  this.getComments = function(listing) {
+    $http.get('http://www.reddit.com/r/' + $scope.subreddit + '/comments/' + listing.data.id + '.json')
+      .success(function(result) {
+        $scope.comments = result[1].data.children;
+      });
+  };
 });
