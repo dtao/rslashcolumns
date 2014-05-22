@@ -1,4 +1,5 @@
 a { cursor: pointer; }
 main.container { width: 100%; }
 #listings li { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.listing.current { font-weight: bold; }
 .comment .body { white-space: pre-line; }

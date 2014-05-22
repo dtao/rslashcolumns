@@ -29,7 +29,7 @@
         <div class="col-lg-5">
             <h3>Listings</h3>
             <ul id="listings" class="list-group">
-                <li class="listing list-group-item" ng-repeat="listing in listings">
+                <li class="listing {{listing === currentListing ? 'current' : ''}} list-group-item" ng-repeat="listing in listings">
                     <a ng-click="ctrl.getComments(listing)">{{listing.data.title}}</a>
                 </li>
             </ul>
