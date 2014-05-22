@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="rsc">
+
+<head>
+    <title>r/columns</title>
+    <link rel="stylesheet" href="//bootswatch.com/yeti/bootstrap.css" />
+    <link rel="stylesheet" href="rsc.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    <script src="rsc.js"></script>
+</head>
+
+<body ng-controller="controller as ctrl">
+    <main class="container">
+        <div class="col-lg-1">
+            <div class="form-group">
+                <label for="subreddit"></label>
+                <input type="text" class="form-control" ng-model="subreddit" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-default" ng-click="ctrl.fetch()">Fetch</button>
+            </div>
+        </div>
+
+        <div class="col-lg-5">
+            <h3>Raw Data</h3>
+            <pre>{{result | json}}</pre>
+        </div>
+
+        <div class="col-lg-6">
+            <h3>Listings</h3>
+            <ul id="listings" class="list-group">
+                <li class="list-group-item" ng-repeat="listing in listings">{{listing.data.title}}</li>
+            </ul>
+        </div>
+    </main>
+</body>
+
+</html>
