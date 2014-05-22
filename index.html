@@ -30,7 +30,10 @@
             <h3>Listings</h3>
             <ul id="listings" class="list-group">
                 <li class="listing {{listing === currentListing ? 'current' : ''}} list-group-item" ng-repeat="listing in listings">
-                    <a ng-click="ctrl.getComments(listing)">{{listing.data.title}}</a>
+                    <a ng-click="ctrl.getComments(listing)">
+                        <span class="score badge">{{listing.data.score}}</span>
+                        <span class="title">{{listing.data.title}}</span>
+                    </a>
                 </li>
             </ul>
         </div>
